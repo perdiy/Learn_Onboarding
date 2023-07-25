@@ -19,7 +19,7 @@ class SwipeViewController: UICollectionViewController, UICollectionViewDelegateF
     let nextButton = UIButton(type: .system)
     let pageControl = UIPageControl()
     let bottomStackView = UIStackView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +29,7 @@ class SwipeViewController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return swipeItems.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwipeCell.reuseIdentifier, for: indexPath) as! SwipeCell
         let swipeItem = swipeItems[indexPath.item]
@@ -72,13 +72,13 @@ class SwipeViewController: UICollectionViewController, UICollectionViewDelegateF
         
         pageControl.currentPage = 0
         pageControl.numberOfPages = swipeItems.count
-        pageControl.currentPageIndicatorTintColor = .systemBlue
+        pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .systemGray
         
         nextButton.setTitle("Next", for: .normal)
         nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
-                
+        
         bottomStackView.addArrangedSubview(previousButton)
         bottomStackView.addArrangedSubview(pageControl)
         bottomStackView.addArrangedSubview(nextButton)
